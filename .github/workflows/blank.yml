@@ -28,15 +28,14 @@ jobs:
           cache: true
       
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install curl clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev liblzma-dev libjsoncpp-dev cmake-data libsecret-1-dev libsecret-1-0 librhash0 libssl-dev -y
+        run: sudo apt-get update && sudo apt-get install curl clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev liblzma-dev libjsoncpp-dev cmake-data libsecret-1-dev libsecret-1-0 librhash0 libssl-dev webkit2gtk-4.1 -y
 
-      - run: |
+      - name: Build Linux
+        run: |
           cd cleanchat
           flutter pub get
           flutter build linux --release --target-platform linux-x64
-      
-      - name: Create archive
-        run: tar -czf fluffychat-linux-x64.tar.gz -C build/linux/x64/release/bundle/ .
+          tar -czf cleanchat-linux-x64.tar.gz -C build/linux/x64/release/bundle/ .
       
       - name: Upload to release
         uses: actions/upload-release-asset@v1
