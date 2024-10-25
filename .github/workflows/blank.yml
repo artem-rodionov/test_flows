@@ -20,5 +20,7 @@ jobs:
       - name: Build
         run: |
           cd cleanchat
-          gh workflow run releases.yml --job build_linux
+          gh workflow list
+          gh variable list
+          # gh workflow run releases.yml 
           
