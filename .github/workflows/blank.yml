@@ -18,9 +18,9 @@ jobs:
           path: 'cleanchat'
 
       - name: cd cleanchat
-        run: cd cleanchat
-      
-      - run: cat .github/workflows/versions.env >> $GITHUB_ENV
+        run: | 
+          cd cleanchat
+          cat .github/workflows/versions.env >> $GITHUB_ENV
       
       - uses: subosito/flutter-action@v2
         with:
