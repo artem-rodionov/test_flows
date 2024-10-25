@@ -34,8 +34,9 @@ jobs:
         run: |
           cd cleanchat
           flutter pub get
-          flutter build windows --release --target-platform windows-x64
-          tar -czf cleanchat-windows-x64.tar.gz -C build/windows/x64/release/bundle/ .
+          flutter build windows --release
+          
+          tar -czf cleanchat-windows-x64.tar.gz -C build/windows/ .
       
       - name: Upload to artifact
         uses: actions/upload-artifact@v3
