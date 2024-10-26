@@ -32,7 +32,7 @@ jobs:
           flutter pub get
           flutter build windows
           
-          tar -czf cleanchat-windows-x64.tar.gz -C build/windows/runner/Release .
+          tar -czf cleanchat-windows-x64.tar.gz -C build/windows/x64/runner/Release .
       
       - name: Upload to artifact
         uses: actions/upload-artifact@v3
