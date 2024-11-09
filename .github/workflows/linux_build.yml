@@ -12,19 +12,26 @@ jobs:
     env:
         GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+
+      - name: Checkout test-flows
+        uses: actions/checkout@v4
+        with:
+          path: 'test_flows'
 
       - name: Checkout fluffychat
         uses: actions/checkout@v4
         with:
           repository: 'krille-chan/fluffychat'
+          path: 'fluffychat'
 
       - name: Change to cleanchat directory
-        run: test_flows/cleanchat/rename.sh
+        run: |
+          pwd
+          test_flows/cleanchat/rename.sh
 
       - name: Get Flutter version
         run: | 
-          cd cleanchat
+          cd fluffychat
           cat .github/workflows/versions.env >> $GITHUB_ENV
       
       - uses: subosito/flutter-action@v2
