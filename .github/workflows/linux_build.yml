@@ -26,8 +26,7 @@ jobs:
 
       - name: Change to cleanchat directory
         run: |
-          pwd
-          ls
+          chmod +x test_flows/cleanchat/rename.sh
           test_flows/cleanchat/rename.sh
 
       - name: Get Flutter version
