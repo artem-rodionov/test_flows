@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 camelNameOld=$(cat test_flows/cleanchat/config.env | cut -d ' ' -f 1)
 lowerNameOld=$(cat test_flows/cleanchat/config.env | cut -d ' ' -f 2)
