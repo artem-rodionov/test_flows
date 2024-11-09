@@ -44,7 +44,7 @@ jobs:
 
       - name: Build Linux
         run: |
-          cd cleanchat
+          cd fluffychat
           flutter pub get
           flutter build linux --release --target-platform linux-x64
           tar -czf cleanchat-linux-x64.tar.gz -C build/linux/x64/release/bundle/ .
