@@ -1,21 +1,26 @@
-name: Build on click
+name: Build Linux
 
 on:
   workflow_dispatch:
+  # schedule:
+  #   - cron: "0 2 * * 1"
 
 
-jobs:
+jobs: 
   build_linux:
     runs-on: ubuntu-latest
     env:
         GH_TOKEN: ${{ github.token }}
     steps:
+      - uses: actions/checkout@v4
 
       - name: Checkout fluffychat
         uses: actions/checkout@v4
         with:
           repository: 'krille-chan/fluffychat'
-          path: 'cleanchat'
+
+      - name: Change to cleanchat directory
+        run: test_flows/cleanchat/rename.sh
 
       - name: Get Flutter version
         run: | 
@@ -42,11 +47,4 @@ jobs:
         with:
           name: cleanchat-linux-x64
           path: cleanchat/cleanchat-linux-x64.tar.gz
-        # uses: actions/upload-release-asset@v1
-        # with:
-        #   upload_url: ${{ github.event.release.upload_url }}
-        #   asset_path: cleanchat/cleanchat-linux-x64.tar.gz
-        #   asset_name: cleanchat-linux-x64.tar.gz
-        #   asset_content_type: application/gzip
-        
           
