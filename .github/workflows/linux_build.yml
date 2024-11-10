@@ -53,5 +53,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cleanchat-linux-x64
-          path: cleanchat/cleanchat-linux-x64.tar.gz
+          path: fluffychat/cleanchat-linux-x64.tar.gz
           
