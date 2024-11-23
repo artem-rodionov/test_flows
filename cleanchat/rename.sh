@@ -29,3 +29,6 @@ sed -i "s/\"$lowerNameOld\"/\"$lowerNameNew\"/g" fluffychat/linux/CMakeLists.txt
 #Change in windows
 sed -i "s/\"$lowerNameOld\"/\"$lowerNameNew\"/g" fluffychat/windows/CMakeLists.txt
 sed -i "s/$camelNameOld/$camelNameNew/g" fluffychat/windows/runner/main.cpp
+
+#Change in macOS
+sed -i "s/= $camelNameOld/= $camelNameNew/g" fluffychat/macos/Runner/Configs/AppInfo.xcconfig
