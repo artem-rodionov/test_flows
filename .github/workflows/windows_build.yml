@@ -9,36 +9,52 @@ jobs:
     env:
         GH_TOKEN: ${{ github.token }}
     steps:
+      - name: Checkout test-flows
+        uses: actions/checkout@v4
+        with:
+          path: 'test_flows'
 
       - name: Checkout fluffychat
         uses: actions/checkout@v4
         with:
           repository: 'krille-chan/fluffychat'
-          path: 'cleanchat'
-
-      - name: Get Flutter version
-        run: | 
-          cd cleanchat
-          set /p GITHUB_ENV=<.github/workflows/versions.env
+          path: 'fluffychat'
       
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          cache: true
-
-      - name: Build Windows
+      - name: Check-OS
         run: |
-          cd cleanchat
-          flutter pub get
-          flutter build windows
-          
-          tar -czf cleanchat-windows-x64.tar.gz -C build/windows/x64/runner/Release .
+          wsl
+          chmod +x test_flows/cleanchat/rename.sh
+          test_flows/cleanchat/rename.sh
+
+      # - name: Checkout fluffychat
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: 'krille-chan/fluffychat'
+      #     path: 'cleanchat'
+
+      # - name: Get Flutter version
+      #   run: | 
+      #     cd cleanchat
+      #     set /p GITHUB_ENV=<.github/workflows/versions.env
       
-      - name: Upload to artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: cleanchat-windows-x64
-          path: cleanchat/cleanchat-windows-x64.tar.gz
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: ${{ env.FLUTTER_VERSION }}
+      #     cache: true
+
+      # - name: Build Windows
+      #   run: |
+      #     cd cleanchat
+      #     flutter pub get
+      #     flutter build windows
+          
+      #     tar -czf cleanchat-windows-x64.tar.gz -C build/windows/x64/runner/Release .
+      
+      # - name: Upload to artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: cleanchat-windows-x64
+      #     path: cleanchat/cleanchat-windows-x64.tar.gz
         # uses: actions/upload-release-asset@v1
         # with:
         #   upload_url: ${{ github.event.release.upload_url }}
