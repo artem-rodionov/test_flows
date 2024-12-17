@@ -92,7 +92,7 @@ jobs:
       - run: cp -r fluffychat path/to/artifacts
 
       - name: Temporarily save fluffychat folder
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: fluffychat
           path: path/to/artifacts
@@ -234,7 +234,7 @@ jobs:
           sudo apt-get install webkit2gtk-4.1
 
       - name: Retrieve saved Docker image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: fluffychat
           path: path/to/artifacts
