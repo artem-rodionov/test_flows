@@ -86,6 +86,18 @@ jobs:
           chmod +x test_flows/rename.sh
           test_flows/rename.sh
 
+      
+      - run: mkdir -p path/to/artifacts
+
+      - run: cp -r fluffychat path/to/artifacts
+
+      - name: Temporarily save fluffychat folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: fluffychat
+          path: path/to/artifacts
+          retention-days: 1
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -220,9 +232,15 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install curl clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev liblzma-dev libjsoncpp-dev cmake-data libsecret-1-dev libsecret-1-0 librhash0 libssl-dev -y
           sudo apt-get install webkit2gtk-4.1
-      - name: Prepare fluffychat
-        run: |
-          git clone https://github.com/krille-chan/fluffychat.git -b main
+
+      - name: Retrieve saved Docker image
+        uses: actions/download-artifact@v2
+        with:
+          name: fluffychat
+          path: path/to/artifacts
+      # - name: Prepare fluffychat
+      #   run: |
+      #     git clone https://github.com/krille-chan/fluffychat.git -b main
       - name: import env
         run: |
           cd fluffychat
