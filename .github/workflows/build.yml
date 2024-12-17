@@ -243,6 +243,7 @@ jobs:
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
       - name: import env
         run: |
+          ls
           cd fluffychat
           cat .github/workflows/versions.env >> $GITHUB_ENV
           
