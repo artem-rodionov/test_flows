@@ -234,7 +234,7 @@ jobs:
           name: fluffychat
           path: fluffychat
 
-      - run: cp -r path/to/artifacts/fluffychat fluffychat
+      # - run: cp -r path/to/artifacts/fluffychat fluffychat
       - run: ls -lR
       # - name: Prepare fluffychat
       #   run: |
