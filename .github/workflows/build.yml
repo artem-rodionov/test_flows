@@ -232,7 +232,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: fluffychat
-          path: path/to/artifacts
+          path: fluffychat
 
       - run: cp -r path/to/artifacts/fluffychat fluffychat
       - run: ls -lR
