@@ -40,6 +40,8 @@ jobs:
           fi
 
       - name: Perform actions if release has changed
+        env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         if: steps.check_release.outputs.new_release != ''
         run: |
             echo "Performing actions for the new release: ${{ steps.check_release.outputs.new_release }}"
