@@ -72,6 +72,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: 'test_flows'
 
       - name: Change to cleanchat directory
         run: |
