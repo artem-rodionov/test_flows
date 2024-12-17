@@ -233,11 +233,13 @@ jobs:
           sudo apt-get update && sudo apt-get install curl clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev liblzma-dev libjsoncpp-dev cmake-data libsecret-1-dev libsecret-1-0 librhash0 libssl-dev -y
           sudo apt-get install webkit2gtk-4.1
 
-      - name: Retrieve saved Docker image
+      - name: Get changed fluffychat
         uses: actions/download-artifact@v4
         with:
           name: fluffychat
           path: path/to/artifacts
+
+      - run: cp -r path/to/artifacts/fluffychat fluffychat
       # - name: Prepare fluffychat
       #   run: |
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
