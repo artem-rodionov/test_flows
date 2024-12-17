@@ -232,10 +232,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: fluffychat
-          path: fluffychat
+          path: ../fluffychat
 
       # - run: cp -r path/to/artifacts/fluffychat fluffychat
-      - run: ls -lR
+      - run: |
+          cd ..
+          ls -lR
       # - name: Prepare fluffychat
       #   run: |
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
