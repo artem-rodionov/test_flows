@@ -40,7 +40,7 @@ jobs:
 
   #     - name: Perform actions if release has changed
   #       env:
-  #           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #       if: steps.check_release.outputs.new_release != ''
   #       run: |
   #           echo "Performing actions for the new release: ${{ steps.check_release.outputs.new_release }}"
@@ -58,7 +58,7 @@ jobs:
     permissions:
       contents: write
     env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       release_link: ${{ steps.create_release.outputs.upload_url }}
     steps:
@@ -82,7 +82,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: fluffychat_${{ steps.tag.outputs.release_tag }}
           release_name: Release fluffychat ${{ steps.tag.outputs.release_tag }}
@@ -129,7 +129,7 @@ jobs:
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }} 
           asset_path: fluffychat/fluffychat-web.tar.gz
@@ -194,7 +194,7 @@ jobs:
   #       id: upload-release-asset 
   #       uses: actions/upload-release-asset@v1
   #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #       with:
   #         upload_url: ${{ needs.create_release.outputs.release_link }} 
   #         asset_path: fluffychat/build/app/outputs/apk/release/app-release.apk
@@ -235,7 +235,7 @@ jobs:
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }}     
           asset_path: fluffychat/fluffychat-linux-x64.tar.gz
@@ -273,7 +273,7 @@ jobs:
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }}     
           asset_path: fluffychat/build/windows/x64/runner/Release/fluffychat.exe
@@ -309,7 +309,7 @@ jobs:
   #       id: upload-release-asset 
   #       uses: actions/upload-release-asset@v1
   #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #       with:
   #         upload_url: ${{ needs.create_release.outputs.release_link }}     
   #         asset_path: fluffychat/build/macos/Build/Products/Release/FluffyChat.app
