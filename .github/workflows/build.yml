@@ -229,6 +229,7 @@ jobs:
           path: fluffychat
 
       - run: |
+          cd ..
           ls -lR
           mv fluffychat/fluffychat/* fluffychat
           rm -rf fluffychat/fluffychat
