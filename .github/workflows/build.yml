@@ -233,7 +233,7 @@ jobs:
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }} 
           asset_path: fluffychat/build/app/outputs/apk/release/app-release.apk
-          asset_name: fluffychat.apk
+          asset_name: cleanchat.apk
           asset_content_type: application/vnd.android.package-archive
       
 
@@ -273,7 +273,7 @@ jobs:
           cd fluffychat
           flutter pub get
           flutter build linux --release --target-platform linux-x64
-          tar -czf fluffychat-linux-x64.tar.gz -C build/linux/x64/release/bundle/ .
+          tar -czf cleanchat-linux-x64.tar.gz -C build/linux/x64/release/bundle/ .
 
       - name: Upload Release Asset
         id: upload-release-asset 
@@ -282,8 +282,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }}     
-          asset_path: fluffychat/fluffychat-linux-x64.tar.gz
-          asset_name: fluffychat-linux-x64.tar.gz
+          asset_path: fluffychat/cleanchat-linux-x64.tar.gz
+          asset_name: cleanchat-linux-x64.tar.gz
           asset_content_type: application/gzip
 
   build_windows:
@@ -316,7 +316,7 @@ jobs:
           flutter pub get
           flutter build windows --release
           #build\windows\x64\runner\Release\fluffychat.exe
-          tar -czf fluffychat-windows.tar.gz -C build/windows/x64/runner/Release/ .
+          tar -czf cleanchat-windows.tar.gz -C build/windows/x64/runner/Release/ .
 
       - name: Upload Release Asset
         id: upload-release-asset 
@@ -325,8 +325,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }}     
-          asset_path: fluffychat/fluffychat-windows.tar.gz
-          asset_name: fluffychat-windows.tar.gz
+          asset_path: fluffychat/cleanchat-windows.tar.gz
+          asset_name: cleanchat-windows.tar.gz
           asset_content_type: application/gzip
   
   build_macos:
@@ -363,6 +363,7 @@ jobs:
           chmod +x ./scripts/prepare-macos.sh
           ./scripts/prepare-macos.sh
           ./scripts/build-macos.sh
+          ls -lR
           #build/macos/Build/Products/Release/FluffyChat.app
 
       - name: Upload Release Asset
