@@ -238,7 +238,7 @@ jobs:
           rm -rf fluffychat/fluffychat
       - run: |
           cd ..
-          ls -l
+          ls -lR
       # - name: Prepare fluffychat
       #   run: |
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
@@ -250,7 +250,7 @@ jobs:
       
       - name: import env
         run: |
-          ls
+          ls -l
           cd fluffychat
           cat .github/workflows/versions.env >> $GITHUB_ENV
           
