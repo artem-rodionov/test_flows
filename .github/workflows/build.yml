@@ -310,8 +310,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }}     
-          asset_path: fluffychat/build/windows/x64/runner/Release/fluffychat.exe
-          asset_name: fluffychat.exe
+          asset_path: fluffychat/build/windows/x64/runner/Release/cleanchat.exe
+          asset_name: cleanchat.exe
           asset_content_type: application/exe
   
   # build_macos:
