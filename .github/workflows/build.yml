@@ -149,7 +149,7 @@ jobs:
       - name: Create archive
         run: |
           cd fluffychat
-          tar -czf fluffychat-web.tar.gz build/web/
+          tar -czf cleanchat-web.tar.gz build/web/
 
       - name: Upload Release Asset
         id: upload-release-asset 
@@ -158,8 +158,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.release_link }} 
-          asset_path: fluffychat/fluffychat-web.tar.gz
-          asset_name: fluffychat-web.tar.gz
+          asset_path: fluffychat/cleanchat-web.tar.gz
+          asset_name: cleanchat-web.tar.gz
           asset_content_type: application/gzip
 
 
