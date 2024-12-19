@@ -226,9 +226,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: create_release
     steps:
-      - uses: actions/checkout@v4
-        with:
-          path: 'test_flows'
 
       - name: Get changed fluffychat
         uses: actions/download-artifact@v4
@@ -245,6 +242,12 @@ jobs:
       # - name: Prepare fluffychat
       #   run: |
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
+      
+      
+      - uses: actions/checkout@v4
+        with:
+          path: 'test_flows'
+      
       - name: import env
         run: |
           ls
