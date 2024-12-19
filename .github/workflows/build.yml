@@ -140,6 +140,7 @@ jobs:
       - name: Prepare web
         run: |
           cd fluffychat
+          chmod +x ./scripts/prepare-web.sh
           ./scripts/prepare-web.sh
       - name: Build Release Web
         run: |
@@ -358,6 +359,8 @@ jobs:
           
       - run:  |
           cd fluffychat
+          chmod +x ./scripts/build-macos.sh
+          chmod +x ./scripts/prepare-macos.sh
           ./scripts/prepare-macos.sh
           ./scripts/build-macos.sh
           #build/macos/Build/Products/Release/FluffyChat.app
