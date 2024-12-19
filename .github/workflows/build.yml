@@ -89,6 +89,7 @@ jobs:
       - name: Temporarily save fluffychat folder
         uses: actions/upload-artifact@v4
         with:
+          include-hidden-files: true
           name: fluffychat
           path: fluffychat
           retention-days: 1
