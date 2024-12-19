@@ -94,16 +94,16 @@ jobs:
           path: fluffychat
           retention-days: 1
 
-      # - name: Create Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: fluffychat_${{ steps.tag.outputs.release_tag }}
-      #     release_name: Release fluffychat ${{ steps.tag.outputs.release_tag }}
-      #     draft: false
-      #     prerelease: false
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: Demo #fluffychat_${{ steps.tag.outputs.release_tag }}
+          release_name: Demo #Release fluffychat ${{ steps.tag.outputs.release_tag }}
+          draft: false
+          prerelease: false
 
   # build_web:
   #   runs-on: ubuntu-latest
@@ -232,7 +232,7 @@ jobs:
       - run: |
           cd ..
           ls -lR
-          # mv fluffychat/fluffychat/* fluffychat
+          #  mv fluffychat/fluffychat/* fluffychat
           # rm -rf fluffychat/fluffychat
       # - run: |
       #     cd ..
