@@ -229,9 +229,9 @@ jobs:
           name: fluffychat
           path: fluffychat
 
-      - run: |
-          cd ..
-          ls -lR
+      # - run: |
+      #     cd ..
+      #     ls -lR
           #  mv fluffychat/fluffychat/* fluffychat
           # rm -rf fluffychat/fluffychat
       # - run: |
@@ -248,7 +248,7 @@ jobs:
       
       - name: import env
         run: |
-          ls -l
+          # ls -l
           cd fluffychat
           cat .github/workflows/versions.env >> $GITHUB_ENV
           
