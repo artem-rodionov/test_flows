@@ -232,11 +232,11 @@ jobs:
       - run: |
           cd ..
           ls -lR
-          mv fluffychat/fluffychat/* fluffychat
-          rm -rf fluffychat/fluffychat
-      - run: |
-          cd ..
-          ls -lR
+          # mv fluffychat/fluffychat/* fluffychat
+          # rm -rf fluffychat/fluffychat
+      # - run: |
+      #     cd ..
+      #     ls -lR
       # - name: Prepare fluffychat
       #   run: |
       #     git clone https://github.com/krille-chan/fluffychat.git -b main
