@@ -361,6 +361,7 @@ jobs:
           cd fluffychat
           chmod +x ./scripts/build-macos.sh
           chmod +x ./scripts/prepare-macos.sh
+          pod repo update
           ./scripts/prepare-macos.sh
           ./scripts/build-macos.sh
           ls -lR
